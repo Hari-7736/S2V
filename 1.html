@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>S2V — GVHSS Balussery | Skill 2 Venture</title>
+  <link rel="icon" type="image/png" href="images/download.jpg">
+  <meta name="description" content="S2V Innovation Hub at GVHSS Balussery — Skill 2 Venture initiative (STARS) — IoT, EVST, student innovation and entrepreneurship." />
+  <style>
+    :root{
+      --main:rgb(0, 0, 0);
+      --bg:#F5F5DC;
+      --card:#ffffff;
+      --navcard:white;
+      --muted:#6b7280;
+      --accent:#0766d6;
+      --accent-2:#00bcd4;
+      --glass: rgba(2,6,23,0.04);
+      --radius:12px;
+      --maxwidth:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      scroll-behavior:smooth;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar{
+      position:fixed;
+      top:0; left:0; right:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 18px;
+      background:rgb(84, 81, 229);
+      backdrop-filter: blur(6px);
+      box-shadow:0 6px 18px rgba(244, 244, 244, 0.08);
+      z-index:1200;
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .nav-left, .nav-right{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--navcard);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:0.95rem;
+    }
+    .nav-links a:hover{ color:var(--accent); background:var(--glass); }
+
+    /* center logo */
+    .nav-center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      margin:0 10px;
+    }
+    .nav-logo{
+      height:56px;
+      display:block;
+      object-fit:contain;
+      transition:transform .25s ease;
+    }
+    .nav-logo:active, .nav-logo:hover{ transform:scale(1.02) }
+
+    /* mobile menu */
+    .menu-btn{
+      display:none;
+      background:transparent;border:0;color:var(--muted);
+      font-weight:700;padding:8px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      padding:120px 20px 60px;
+      max-width:var(--maxwidth);
+      margin:0 auto;
+      display:grid;
+      background-image: url('images/SCHOOL.png'); /* Replace with your file */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: var(--radius);
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:center;
+      min-height:90vh;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: xx-large;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(222, 138, 78, 0.26), rgba(195, 195, 199, 0.616));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 12px 30px rgba(12,18,28,0.06);
+    }
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.85rem;margin-bottom:12px}
+    h1{font-size:clamp(26px,3.6vw,38px);margin:12px 0 10px; color:#000000}
+    p.lead{color:var(--main)black;margin-bottom:16px}
+
+
+
+    /* .kicker2{display:inline-block;background:linear-gradient(180deg,var(--navcard),var(--muted));color:rgb(0, 0, 0);padding:6px 10px;font-weight:700;font-size:0.85rem;margin-bottom:12px}
+    h3{font-size:clamp(20px,3.6vw,38px);margin:1px 0 1px; color:#c51414cb}
+    p.lead{color:var(--accent-2);margin-bottom:20px} */
+
+
+
+
+
+    
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:rgb(233, 227, 227);padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(255, 255, 255, 0)}
+    .btn.secondary{background:transparent;border:1px solid rgba(6,22,60,0.06);color:var(--muted)}
+
+    .hero-figure{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:var(--radius);
+      padding:18px;
+      background:linear-gradient(135deg, rgba(168, 169, 176, 0.738), rgba(7,102,214,0.06));
+      box-shadow:inset 0 1px 0 rgb(0, 0, 0)
+    }
+    .hero-figure img{max-width:260px;height:auto;display:block}
+
+    /* small info stats */
+    .stats{display:flex;gap:10px;margin-top:18px}
+    .stat{flex:1;background:var(--glass);padding:10px;border-radius:10px;text-align:center}
+    .stat h3{margin:0;font-size:20px;color:#06223a}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:0.9rem}
+
+    /* ===== SECTIONS ===== */
+    main{max-width:var(--maxwidth);margin:28px auto;padding:0 18px}
+    section.block{margin:24px 0;padding:24px;border-radius:12px;background:var(--card);box-shadow:0 8px 18px rgba(12,18,28,0.04)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .muted{color:var(--muted)}
+
+    /* facilities & skills lists */
+    ul.clean{list-style:none;padding-left:0}
+    ul.clean li{padding:8px 0;border-bottom:1px dashed rgba(15,23,36,0.04);color:var(--main);display:flex;gap:12px;align-items:flex-start}
+
+    /* team */
+  .team-photo {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display:block;
+    box-shadow: 0 4px 12px rgba(255, 158, 1, 0.589);
+}
+
+    .team{display:flex;gap:12px;flex-wrap:wrap}
+    .person{flex:1 1 220px;padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
+    .person strong{display:block;margin-bottom:6px}
+
+    /* gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease}
+    .gallery-grid img:hover{transform:scale(1.02);box-shadow:0 8px 20px rgba(254, 151, 26, 0.947)}
+
+    /* contact */
+   
+
+
+    .contact-row{display:grid;grid-template-columns:2fr 1fr;align-items: center;text-align: center;gap:18px}
+    form input, form textarea, form select{
+      width:100%;padding:12px;border-radius:8px;border:1px solid rgba(12,18,28,0.06);
+      font-size:1rem;background:transparent;color:inherit
+    }
+    form button{margin-top:8px}
+
+    /* footer */
+    footer{padding:18px;text-align:center;color:var(--muted);font-size:0.95rem}
+
+    /* LIGHTBOX overlay */
+    .lightbox{
+      position:fixed;inset:0;display:none;place-items:center;background:rgba(2,6,23,0.7);z-index:1400;padding:20px
+    }
+    .lightbox img{max-width:95%;max-height:85%;border-radius:10px;box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+
+    /* reveal animation (scroll) */
+    .reveal{opacity:0;transform:translateY(20px);transition:all .7s cubic-bezier(.2,.9,.2,1);}
+    .reveal.show{opacity:1;transform:none}
+
+    /* small screen tweaks */
+    @media (max-width:1020px){
+      .hero{grid-template-columns:1fr; padding-top:110px}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .contact-row{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav-left, .nav-right{display:none} /* hide side links for small screens */
+      .menu-btn{display:inline-block}
+      .nav-center{margin:0 auto}
+      .hero{padding-top:100px}
+      .grid-3{grid-template-columns:1fr}
+      .stat{font-size:0.9rem}
+      .nav-logo{height:46px}
+    }
+
+    /* mobile nav pop */
+    .mobile-drawer{
+      position:fixed;left:0;right:0;top:68px;background:white;border-bottom-left-radius:10px;border-bottom-right-radius:10px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.08);padding:12px;display:none;z-index:1300
+    }
+    .mobile-drawer a{display:block;padding:10px;border-radius:8px;color:var(--muted);text-decoration:none}
+    .mobile-drawer a:hover{background:var(--glass);color:var(--accent)}
+
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+}
+h1 { font-size: clamp(32px, 4.2vw, 48px); }
+h2 { font-size: clamp(26px, 3.2vw, 36px); }
+h3 { font-size: clamp(22px, 2.6vw, 28px); }
+p, li { font-size: 1.05rem; }
+
+main, section.block {
+  text-align: center;
+}
+section.block p,
+section.block ul {
+  text-align: justify;
+  margin: auto;
+  max-width: 900px;
+}body {
+  font-size: 18px;
+  line-height: 1.6;
+}
+h1 { font-size: clamp(32px, 4.2vw, 48px); }
+h2 { font-size: clamp(26px, 3.2vw, 36px); }
+h3 { font-size: clamp(22px, 2.6vw, 28px); }
+p, li { font-size: 1.05rem; }
+
+main, section.block {
+  text-align: center;
+}
+section.block p,
+section.block ul {
+  text-align: justify;
+  margin: auto;
+  max-width: 900px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="navbar" role="banner">
+    <div class="nav-right nav-links" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+    </div>
+
+    <div class="nav-center" aria-hidden="false">
+      <!-- Put your uploaded logo file in the same folder and use this filename -->
+      <img src="images/skill2venture-removebg-preview.png" alt="S2V logo" class="nav-logo" />
+    </div>
+
+    <div class="nav-right nav-links" aria-hidden="true">
+      <a href="#facilities">Facilities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
+  </header>
+
+  <!-- mobile drawer -->
+  <nav class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#facilities" class="mobile-link">Facilities</a>
+    <a href="#skills" class="mobile-link">Skills & Learning</a>
+    <a href="#team" class="mobile-link">Our Team</a>
+    <a href="#gallery" class="mobile-link">Gallery</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero reveal">
+      <div class="hero-card">
+      
+        <span class="kicker">🌐 S2V – GVHSS Balussery</span>
+        <h1><b>Innovate Locally. Impact Globally.</b></h1>
+        <p class="lead">Welcome to the Skill 2 Venture (S2V) Innovation Hub at GVHSS Balussery — a pioneering entrepreneurship and technology lab under the STARS program, launched by the Government of Kerala, Ministry of Education, and the World Bank. We empower students from Tier 2 and Tier 3 institutions to solve real-world problems through innovation, product development, and entrepreneurship.</p>
+
+        <div class="hero-cta">
+          <button class="btn" onclick="document.location='#projects'">Explore Our Work</button>
+          <!-- <button class="btn secondary" onclick="document.location='#contact'">Get Involved</button> -->
+        </div>
+
+        <div class="stats" aria-hidden="true">
+          <div class="stat"><h3>1,200+</h3><p>Alumni & Participants</p></div>
+          <div class="stat"><h3>Statewide</h3><p>IoT Pilots (Thumboormuzhi)</p></div>
+          <div class="stat"><h3>Team</h3><p>School × Industry</p></div>
+        </div>
+      </div>
+
+      <aside class="hero-figure" aria-hidden="true">
+        <!-- small visual card -->
+         
+        <div style="max-width:auto;text-align:left">
+          <!-- <div style="background-color: #f1e5a064;"> -->
+          <span class="kicker1">
+          <h3 style="margin:0 0 8px;color:#000000">🎯 Flagship Project</h3>
+          <p class="main" style="margin:0 0 12px">Design and manufacture of IoT gateways for digitizing Thumboormuzhi waste bins across Kerala — in collaboration with Teamstarbase Pvt Ltd.</p>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#projects">Learn More</a></span>
+          <!-- </div> -->
+            <!-- <a class="btn secondary" href="#contact">Partner With Us</a> -->
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="block reveal">
+      <h2>About Us — A Launchpad for Student Innovation</h2>
+      <p class="main">S2V at GVHSS Balussery is a trailblazing school-level innovation and entrepreneurship center. As part of the national STARS (Strengthening Teaching-Learning and Results for States) program, our hub equips students with future-ready skills — blending classroom learning with real-world application. Our aim is to nurture tech creators, not just tech consumers — giving students the confidence to build, test, and launch their own ventures.</p>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="projects" class="block reveal">
+      <h2>🚀 Our Project — Smart Waste Management Using IoT</h2>
+      <div class="grid-2" style="align-items:start">
+        <div>
+          <p class="muted">We are proud to lead a statewide initiative to support Kerala’s decentralized waste management mission.</p>
+          <ul class="clean" style="margin-top:12px">
+            <li><strong>🛠️What We're Building:</strong> Student teams are designing and assembling IoT gateway devices that collect real-time data from Thumboormuzhi bins.</li>
+            <li><strong>📡Technology in Action:</strong> Devices monitor bin fill levels, usage patterns, and maintenance cycles — enabling smarter municipal waste collection and reporting.</li>
+            <li><strong>🤝Industry Collaboration:</strong> Partnership with Teamstarbase Pvt Ltd for technical mentorship and scale-ready expertise.</li>
+            <li><strong>🌍Statewide Impact:</strong> Pilots across multiple districts under Kerala’s Garbage-Free Cities 2.0 program.</li>
+          </ul>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div style="border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#e6f7ff,#fff);padding:12px">
+            <img src="images/iot1-removebg-preview (3).png" alt="IoT gateway" style="width: 150px;;height: 150px;;object-fit:cover;border-radius:8px">
+            <p class="muted" style="margin-top:8px">Students assembling and testing IoT gateway prototypes.</p>
+          </div>
+          <div style="border-radius:12px;padding:12px;background:linear-gradient(135deg,#fff7e6,#fff);">
+            <img src="images/starbase logo.png" alt="team starbase" style="width: 150px;;height:auto;object-fit:cover;border-radius:8px">
+            <p class="muted" style="margin:6px 0 0"><a href="https://teamstarbase.com" target="_blank" rel="noopener" style="color:var(--accent)">Teamstarbase Pvt Ltd</a> — technical mentorship & deployment partner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <section id="facilities" class="block reveal">
+      <h2><b>🏭 In-House Tech Lab</b></h2>
+      <p class="muted">We’re equipped with advanced tools and infrastructure that allow students to go from concept to product — all under one roof.</p>
+      <div class="grid-3" style="margin-top:14px">
+        <div style="padding:12px">
+          <h4><b>🖨️ 3D Printing Facility</b></h4>
+          <p class="muted">Custom enclosures, rapid prototyping and finish work.</p>
+        </div>
+        <div style="padding:12px">
+          <h4><b>🔧 Electronics Assembly Station</b></h4>
+          <p class="muted">PCB soldering, microcontroller integration and assembly workflows.</p>
+        </div>
+        <div style="padding:12px">
+          <h4><b>🧪 Testing & Debugging</b></h4>
+          <p class="muted">Multimeters, oscilloscopes, wireless testing rigs and firmware flashing stations.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="grid-3">
+        <div style="padding:12px">
+          <h4><b>💡 Design & Ideation Zon</b>e</h4>
+          <p class="muted">Whiteboards, canvases and prototyping benches.</p>
+        </div>
+        <div style="padding:12px">
+          <h4><b>📚 Mentorship Sessions</b></h4>
+          <p class="muted">Industry & academic mentoring for product and pitching guidance.</p>
+        </div>
+        <div style="padding:12px">
+          <h4><b>📈 Placement Support</b></h4>
+          <p class="muted">Help for students to showcase projects and connect with opportunities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="block reveal">
+      <h2>Skills & Learning</h2>
+      <p class="muted">What our students are learning through hands-on practice and mentorship.</p>
+      <ul class="clean" style="margin-top:12px">
+        <li>● <strong>Electronics Prototyping:</strong> schematic reading, soldering, board testing</li>
+        <li>● <strong>IoT & Embedded Systems:</strong> Arduino/ESP32, sensor integration, real-time data transmission</li>
+        <li>● <strong>3D Design & Printing:</strong> CAD modeling, slicing, print finishing</li>
+        <li>● <strong>Entrepreneurship:</strong> business models, pitching, product-market fit</li>
+        <li>● <strong>Project Management:</strong> team collaboration, documentation & timelines</li>
+      </ul>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="block reveal">
+      <h2>Our Team — Makers & Mentors</h2>
+      <div class="team" style="margin-top:12px">
+        <div class="person">
+          <img src="images/indhu.jpg" alt="Mrs. Indhu K R" class="team-photo">
+          <strong>👩‍🏫 Mrs. Indhu K R</strong>
+          <div class="muted">Principal, GVHSS Balussery</div>
+        </div>
+        <div class="person">
+          <img src="images/tharun kumar.jpg"alt="Mr. Tharun Kumar P T" class="team-photo">
+          <strong>👨‍💼 Mr. Tharun Kumar P T</strong>
+          <div class="muted">Innovation Coordinator & Program Lead</div>
+        </div>
+        <div class="person">
+          <img src="images/Nithin.jpg" alt="starbase" class="team-photo">
+          <strong>🧑‍💻 Teamstarbase Pvt Ltd</strong>
+          <div class="muted">Technology Partner — Mentorship & Deployment</div>
+        </div>
+        <div class="person">
+          <img src="images/student.jpg" alt="Student Innovators" class="team-photo">
+          <strong>🧑‍🎓 Student Innovators</strong>
+          <div class="muted">Bright students leading build, test & deployment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="block reveal">
+      <h2>Gallery — Coming Soon</h2>
+      <p class="muted">Photos from IoT gateway assembly, 3D prints, field deployment, hackathons, demos and expert interactions.</p>
+      <div class="gallery-grid" style="margin-top:12px">
+        <!-- Replace placeholder URLs with your real images; clicking opens lightbox -->
+        <img src="https://via.placeholder.com/800x600?text=Assembly+Line" alt="Assembly" data-full="https://via.placeholder.com/1400x1000?text=Assembly+Line">
+        <img src="images/student.jpg" alt="3D Printing" data-full="images/student.jpg">
+        <img src="https://via.placeholder.com/800x600?text=Field+Deployment" alt="Field" data-full="https://via.placeholder.com/1400x1000?text=Field+Deployment">
+        <img src="https://via.placeholder.com/800x600?text=Hackathon" alt="Hackathon" data-full="https://via.placeholder.com/1400x1000?text=Hackathon">
+        <img src="images/class.jpg" alt="Students" data-full="images/class.jpg">
+        <img src="images/testing.jpg" alt="Testing" data-full="images/testing.jpg">
+        <img src="images/innaguration.jpg" alt="innaguration" data-full="images/innaguration.jpg">
+        <img src="images/first aid.jpg" alt="firstaid" data-full="images/first aid.jpg">
+      </div>
+      <p style="margin-top:12px;color:var(--muted)">📸 Follow us on Instagram | 🎥 Watch us on YouTube</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="block reveal">
+      <h2>Contact Us</h2>
+      <div class="contact-row" style="margin-top:12px">
+        <div><b> 
+          <p><strong>📍 S2V Innovation Hub</strong><br>GVHSS Balussery, Kozhikode District, Kerala – 673612</p>
+          <p><strong>📧 Email:</strong> <a href="mailto:s2vbalussery@gov.in">s2vbalussery@gov.in</a></p>
+          <p><strong>📞 Phone:</strong> +91 98470 12345</p>
+          <p><strong>🌐 Partner:</strong> <a href="https://teamstarbase.com" target="_blank" rel="noopener">teamstarbase.com</a></p>
+        </b></div>
+
+        <!-- <div>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <input id="name" name="name" placeholder="Your name" required>
+            <input id="email" name="email" type="email" placeholder="Email" required style="margin-top:8px">
+            <select id="interest" style="margin-top:8px">
+              <option>I'm interested in: IoT course</option>
+              <option>EVST course</option>
+              <option>Partnership / Industry</option>
+              <option>Student project showcase</option>
+            </select>
+            <textarea id="message" placeholder="Short message" rows="4" style="margin-top:8px"></textarea>
+            <button class="btn" type="submit" style="width:100%">Send</button>
+            <div id="formMsg" style="margin-top:8px;color:var(--muted);font-size:0.95rem"></div>
+          </form>
+        </div> -->
+      </div>
+    </section>
+
+    <footer style="margin:22px 0">
+      <div style="max-width:var(--maxwidth);margin:0 auto;padding:8px;color:var(--muted)">© <span id="year"></span> S2V – GVHSS Balussery • A Skill 2 Venture Initiative | Powered by Govt. of Kerala, Ministry of Education & World Bank under STARS</div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+    <img src="" alt="Preview" id="lightboxImg">
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile drawer
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if(menuBtn){
+      menuBtn.addEventListener('click', () => {
+        const open = mobileDrawer.style.display === 'block';
+        mobileDrawer.style.display = open ? 'none' : 'block';
+      });
+      // close on link click
+      document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => mobileDrawer.style.display = 'none'));
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const offset = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if(r.top < offset) el.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Smooth nav links focus (anchors in top nav hidden on small screens)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length > 1){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target){
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+            window.scrollTo({top, behavior:'smooth'});
+          }
+        }
+      });
+    });
+
+    // Gallery lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-grid img').forEach(img=>{
+      img.addEventListener('click', () => {
+        const full = img.dataset.full || img.src;
+        lightboxImg.src = full;
+        lightbox.style.display = 'grid';
+        lightbox.setAttribute('aria-hidden','false');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImg.src = '';
+    });
+
+    // Simple contact form handling (client-side only)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const interest = document.getElementById('interest').value;
+      const message = document.getElementById('message').value.trim();
+      const msgEl = document.getElementById('formMsg');
+
+      if(!name || !email){
+        msgEl.textContent = 'Please enter name and a valid email.';
+        return;
+      }
+      // For now we just show a success message.
+      msgEl.textContent = 'Thanks — your message has been received. We will contact you soon.';
+      e.target.reset();
+
+      // To actually send data, replace this block with fetch() to your backend or Formspree endpoint.
+      // Example:
+      // fetch('https://formspree.io/f/yourid', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name,email,interest,message})})
+    }
+
+    // Accessibility: close lightbox on ESC
+    window.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Escape' && lightbox.style.display === 'grid'){
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
